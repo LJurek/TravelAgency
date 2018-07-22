@@ -2,25 +2,24 @@ package gproject.TravelAgency.model;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Continent")
 public class ContinentEntity {
 
     @Id
-    @GeneratedValue
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
-
+    @Column(name = "Name")
     String Name;
 
     public ContinentEntity(String name) {
         Name = name;
     }
 
-    public ContinentEntity(){
+    public ContinentEntity() {
 
     }
 
@@ -39,6 +38,7 @@ public class ContinentEntity {
     public void setName(String name) {
         Name = name;
     }
+
     @Override
     public String toString() {
         return "ContinentEntity{" +
