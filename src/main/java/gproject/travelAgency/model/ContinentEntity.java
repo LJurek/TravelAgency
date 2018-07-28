@@ -1,49 +1,30 @@
-package gproject.TravelAgency.model;
+package gproject.travelAgency.model;
 
-import org.springframework.data.annotation.Id;
+
+import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Continent")
-public class ContinentEntity {
+@Table(name = "Continents")
+@Data
+public class ContinentEntity implements Serializable {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long Id;
+    private Long id;
     @Column(name = "Name")
-    String Name;
+    private String name;
 
     public ContinentEntity(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public ContinentEntity() {
 
     }
 
-    public Long getId() {
-        return Id;
-    }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "ContinentEntity{" +
-                "Id=" + Id +
-                ", Name='" + Name + '\'' +
-                '}';
-    }
 }

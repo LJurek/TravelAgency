@@ -1,4 +1,4 @@
-package gproject.TravelAgency;
+package gproject.travelAgency;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,15 +1,16 @@
-package gproject.TravelAgency.repository;
+package gproject.travelAgency.repository;
 
-import gproject.TravelAgency.model.ContinentEntity;
+import gproject.travelAgency.model.ContinentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 
 
 @Repository
-public interface TravelAgencyJpaRepository extends JpaRepository<ContinentEntity,Long> {
+public interface ContinentJpaRepository extends JpaRepository<ContinentEntity, Long> {
+    Optional<ContinentEntity> findById(Long Id);
 
-    List<>
-
+    Optional<ContinentEntity> findByName(String Name);
 }
