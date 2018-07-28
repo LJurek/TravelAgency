@@ -9,7 +9,7 @@ import java.util.Optional;
 
 
 @Repository
-public interface ContinentJpaRepository extends JpaRepository<ContinentEntity, Long> {
+public interface ContinentRepository extends JpaRepository<ContinentEntity, Long> {
     Optional<ContinentEntity> findById(Long Id);
 
     Optional<ContinentEntity> findByName(String Name);

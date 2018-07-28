@@ -1,5 +1,7 @@
 package gproject.travelAgency.service;
 
-public class AirportService {
+import gproject.travelAgency.model.AirportEntity;
+
+public interface AirportService extends CrudService<AirportEntity,Long>{
 
 }
