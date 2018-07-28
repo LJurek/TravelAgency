@@ -14,34 +14,34 @@ public class TripEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "Departure_Airport")
+    @Column(name = "DepartureAirport")
     private String airportFrom;
 
-    @Column(name = "Arrival_Airport")
+    @Column(name = "ArrivalAirport")
     private String airportTo;
 
-    @Column(name = "Arrival_Hotel")
+    @Column(name = "ArrivalHotel")
     private String hotelTo;
 
-    @Column(name = "Arrival_City")
+    @Column(name = "ArrivalCity")
     private String cityTo;
 
-    @Column(name = "Departure_Date")
+    @Column(name = "DepartureDate")
     private String departureDate;
 
-    @Column(name = "Return_Date")
+    @Column(name = "ReturnDate")
     private String returnDate;
 
-    @Column(name = "Count_of_days")
+    @Column(name = "CountOfDays")
     private Integer countOfDays;
 
-    @Column(name = "Alimentation_type")
+    @Column(name = "AlimentationType")
     private String alimentationType;
 
-    @Column(name = "Price_for_adult")
+    @Column(name = "PriceForAdult")
     private BigDecimal priceForAdult;
 
-    @Column(name = "Price_for_child")
+    @Column(name = "PriceForChild")
     private BigDecimal priceForChild;
 
     @Column(name = "Promotion")
@@ -52,4 +52,23 @@ public class TripEntity implements Serializable {
 
     @Column(name = "Description")
     private String description;
+
+    public TripEntity(String airportFrom, String airportTo, String hotelTo, String cityTo, String departureDate, String returnDate, Integer countOfDays, String alimentationType, BigDecimal priceForAdult, BigDecimal priceForChild, BigDecimal promotion, Long countOfPerson, String description) {
+        this.airportFrom = airportFrom;
+        this.airportTo = airportTo;
+        this.hotelTo = hotelTo;
+        this.cityTo = cityTo;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
+        this.countOfDays = countOfDays;
+        this.alimentationType = alimentationType;
+        this.priceForAdult = priceForAdult;
+        this.priceForChild = priceForChild;
+        this.promotion = promotion;
+        this.countOfPerson = countOfPerson;
+        this.description = description;
+    }
+
+    public TripEntity() {
+    }
 }
