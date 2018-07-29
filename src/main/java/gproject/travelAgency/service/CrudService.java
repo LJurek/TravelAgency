@@ -14,6 +14,7 @@ public interface CrudService<T, ID extends Serializable>{
     Long count();
 
     void delete(T entity);
+    void delete(ID id);
 
     void modify(T entity);
 

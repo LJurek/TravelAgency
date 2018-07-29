@@ -1,9 +1,14 @@
 package gproject.travelAgency.repository;
+
 import gproject.travelAgency.model.TripEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
+@Repository
 public interface TripRepository extends JpaRepository<TripEntity, Long> {
-    List<TripEntity> findByIdAndCityTo(Long Id, String cityTo);
+    Optional<TripEntity> findById(Long Id);
+
+    Optional<TripEntity> findByName(String Name);
 }
