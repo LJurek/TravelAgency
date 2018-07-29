@@ -26,11 +26,11 @@ public class ContinentController {
 
     @GetMapping("/getContinent/{id}")
     public ResponseEntity<ContinentEntity> getContinent(@PathVariable int id){
-        //TODO
-        return null;
+        ContinentEntity continentEntity =(ContinentEntity) continentService.findOne(id);
+        return ResponseEntity.ok(continentEntity);
     }
-    @PutMapping(value = "/updateContinent/{id}")
-    public ResponseEntity<ContinentEntity> update(@RequestBody ContinentEntity continentEntity, @PathVariable int id) {
+    @PutMapping(value = "/updateContinent/")
+    public ResponseEntity<ContinentEntity> update(@RequestBody ContinentEntity continentEntity) {
         continentService.modify(continentEntity);
         return ResponseEntity.ok(continentEntity);
     }
@@ -40,5 +40,9 @@ public class ContinentController {
         continentService.delete(id);
     }
 
-//TODO next metods
+    @GetMapping(value = "/countContinent")
+    public Long count() {
+        return continentService.count();
+    }
+
 }
