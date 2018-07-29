@@ -9,6 +9,4 @@ import java.util.Optional;
 @Repository
 public interface AirportRepository extends JpaRepository<AirportEntity, Long> {
     Optional<AirportEntity> findById(Long Id);
-
-    Optional<AirportEntity> findByName(String Name);
 }

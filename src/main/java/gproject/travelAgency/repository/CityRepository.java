@@ -9,6 +9,4 @@ import java.util.Optional;
 @Repository
 public interface CityRepository extends JpaRepository<CityEntity, Long> {
     Optional<CityEntity> findById(Long Id);
-
-    Optional<CityEntity> findByName(String Name);
 }
