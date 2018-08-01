@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,6 +15,9 @@ public class CityEntity implements Serializable {
     private Long id;
     private String name;
     private Long countryId;
+
+    @ManyToMany
+    private List<TripEntity> tripEntities;
 
     public CityEntity(String name, Long countryId) {
         this.name = name;

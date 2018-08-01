@@ -15,6 +15,12 @@ public class TripEntity implements Serializable {
     private Long id;
     @ManyToMany
     private List<PurchasedTripEntity> purchasedTrip;
+    @ManyToMany(mappedBy = "tripEntities")
+    private List<AirportEntity> airportEntities;
+    @ManyToMany(mappedBy = "tripEntities")
+    private List<HotelEntity> hotelEntities;
+    @ManyToMany(mappedBy = "tripEntities")
+    private List<CityEntity> cityEntities;
     private String airportFrom;
     private String airportTo;
     private String hotelTo;

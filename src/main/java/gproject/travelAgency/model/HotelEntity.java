@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +17,8 @@ public class HotelEntity implements Serializable {
     private String standard;
     private String description;
     private Long cityId;
+    @ManyToMany
+    private List<TripEntity>tripEntities;
 
     public HotelEntity(String name, String standard, String description, Long cityId) {
         this.name = name;
