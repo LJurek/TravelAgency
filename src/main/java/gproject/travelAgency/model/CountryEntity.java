@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Data
@@ -13,6 +14,12 @@ public class CountryEntity implements Serializable {
     private Long id;
     private String name;
     private Long continentId;
+
+    @OneToMany
+    private ContinentEntity continentEntity;
+
+    @OneToMany(mappedBy ="countryEntity")
+    private Set<CityEntity> cityEntities;
 
     public CountryEntity(String name, Long continentId) {
         this.name = name;

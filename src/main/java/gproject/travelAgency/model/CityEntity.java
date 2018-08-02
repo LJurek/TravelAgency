@@ -19,6 +19,9 @@ public class CityEntity implements Serializable {
     @ManyToMany
     private List<TripEntity> tripEntities;
 
+    @ManyToOne
+    private CountryEntity countryEntity;
+
     public CityEntity(String name, Long countryId) {
         this.name = name;
         this.countryId = countryId;
