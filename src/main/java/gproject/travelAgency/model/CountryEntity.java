@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class CountryEntity implements Serializable {
     private String name;
     private Long continentId;
 
-    @OneToMany
+    @OneToOne
     private ContinentEntity continentEntity;
 
     @OneToMany(mappedBy ="countryEntity")
