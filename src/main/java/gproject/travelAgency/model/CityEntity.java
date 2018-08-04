@@ -20,7 +20,8 @@ public class CityEntity implements Serializable {
     @ManyToMany
     private List<TripEntity> tripEntities;
 
-    @ManyToOne
+    @ManyToOne (fetch=FetchType.LAZY)
+    @JoinColumn(name = "countryEntity_id")
     private CountryEntity countryEntity;
 
     public CityEntity(String name, Long countryId) {

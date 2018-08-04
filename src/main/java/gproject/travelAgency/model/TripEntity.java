@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -13,14 +15,19 @@ public class TripEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToMany
-    private List<PurchasedTripEntity> purchasedTrip;
-    @ManyToMany(mappedBy = "tripEntities")
+
+    @ManyToMany (mappedBy = "tripEntities", fetch = FetchType.LAZY, cascade= CascadeType.ALL)
+    private Set<PurchasedTripEntity> purchasedTripEntities;
+
+    @ManyToMany(mappedBy = "tripEntities", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AirportEntity> airportEntities;
-    @ManyToMany(mappedBy = "tripEntities")
+
+    @ManyToMany(mappedBy = "tripEntities", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<HotelEntity> hotelEntities;
-    @ManyToMany(mappedBy = "tripEntities")
+
+    @ManyToMany(mappedBy = "tripEntities", fetch = FetchType.LAZY, cascade =CascadeType.ALL)
     private List<CityEntity> cityEntities;
+
     private String airportFrom;
     private String airportTo;
     private String hotelTo;

@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,10 +15,11 @@ public class CountryEntity implements Serializable {
     private String name;
     private Long continentId;
 
-    @OneToOne
+    @ManyToOne (fetch=FetchType.EAGER)
+    @JoinColumn(name = "continentEntity_id")
     private ContinentEntity continentEntity;
 
-    @OneToMany(mappedBy ="countryEntity")
+    @OneToMany(mappedBy ="countryEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<CityEntity> cityEntities;
 
     public CountryEntity(String name, Long continentId) {

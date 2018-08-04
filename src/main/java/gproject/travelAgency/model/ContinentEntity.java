@@ -20,9 +20,8 @@ public class ContinentEntity implements Serializable {
     private Long id;
     private String name;
 
-    @OneToOne
-    private CountryEntity countryEntities;
-
+    @OneToMany(mappedBy = "continentEntity",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<CountryEntity> countryEntities;
 
     public ContinentEntity(String name) {
         this.name = name;

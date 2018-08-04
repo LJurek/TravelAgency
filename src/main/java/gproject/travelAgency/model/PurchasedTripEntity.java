@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -17,8 +17,9 @@ public class PurchasedTripEntity implements Serializable {
     private BigDecimal amount;
     private String owner;
 
-    @ManyToMany(mappedBy = "purchasedTrip")
-    private List<TripEntity> trips;
+    @ManyToMany ( fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "purchasedTripEntity_id")
+    private Set<TripEntity> tripEntities;
 
     public PurchasedTripEntity(Long tripId, BigDecimal amount, String owner) {
         this.tripId = tripId;
