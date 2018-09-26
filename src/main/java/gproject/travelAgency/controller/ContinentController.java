@@ -20,24 +20,25 @@ public class ContinentController {
     }
 
     @PostMapping("/addContinent")
-    public ResponseEntity<ContinentEntity> addContinent(@RequestBody ContinentEntity continentEntity){
+    public ResponseEntity<ContinentEntity> addContinent(@RequestBody ContinentEntity continentEntity) {
         continentService.add(continentEntity);
         return ResponseEntity.ok(continentEntity);
     }
 
     @GetMapping("/getContinent/{id}")
-    public ResponseEntity<ContinentEntity> getContinent(@PathVariable int id){
-        ContinentEntity continentEntity =(ContinentEntity) continentService.findOne(id);
+    public ResponseEntity<ContinentEntity> getContinent(@PathVariable int id) {
+        ContinentEntity continentEntity = (ContinentEntity) continentService.findOne(id);
         return ResponseEntity.ok(continentEntity);
     }
+
     @PutMapping(value = "/updateContinent/")
     public ResponseEntity<ContinentEntity> update(@RequestBody ContinentEntity continentEntity) {
         continentService.modify(continentEntity);
         return ResponseEntity.ok(continentEntity);
     }
+
     @DeleteMapping(value = "/deleteContinent/{id}")
     public void delete(@PathVariable Long id) {
-
         continentService.delete(id);
     }
 
